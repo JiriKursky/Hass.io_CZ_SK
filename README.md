@@ -1,6 +1,32 @@
 # Časovač pro řízení filtrace
 
-přidat do *configuration.yaml*
+Aby fungovalo níže popsané, musí se zadefinovat entita filtrace_zapni, která je třeba Sonoff definice někam do *configuration.yaml*:
+
+```yaml
+input_boolean:
+  filtrace_zapni:
+    name: Ovládání filtrace
+``` 
+slouží jako pamatovák, ve kterém stavu se filtrace nachází
+zapnutí switch.filtrace a vypnutí se řídí automatizací, je k dispozici dole
+definice pro Sonoff tasmota MQTT - bude popsáno později, pokud bude zájem
+
+```yaml
+input_switch: 
+- platform: mqtt
+  name: "Filtrace"
+  state_topic: "stat/sonoff-xx/POWER"
+  command_topic: "cmnd/sonoff-xx/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "ON"
+  payload_not_available: "OFF"
+  optimistic: false
+  qos: 0
+  retain: true
+``` 
+
+pak přidat do *configuration.yaml*
 ```yaml
 input_datetime: !include casovace.yaml 
 input_number: !include input_number.yaml  
@@ -69,6 +95,31 @@ přidat do *automations.yaml*
   action:
   - service: python_script.filtrace_casovac_n
   initial_state: true
+ - id: 'filtrace_zapni'
+  alias: Zapnutí filtrace input booleanem
+  trigger:
+  - entity_id: input_boolean.filtrace_zapni
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: switch.filtrace
+    service: switch.turn_on
+  initial_state: true
+- id: 'filtrace_vypni'
+  alias: Vypnutí filttrace input booleanem
+  trigger:
+  - entity_id: input_boolean.filtrace_zapni
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      entity_id: switch.filtrace
+    service: switch.turn_off
+  initial_state: true
+
 ```
 a pak do adresáře config/python_scripts (není-li, je třeba python_scripts vytvořit) nakopírovat soubor filtrace_casovac_n
 v souboru filtrace_casovac_n můžete změnit POCET_CYKLU = 3 na hodnotu, která vám vyhovuje, ale pak musíte přidat nebo ubrat v souborech
