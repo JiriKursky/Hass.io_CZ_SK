@@ -2,24 +2,25 @@
 
 přidat do *configuration.yaml*
 ```yaml
-input_datetime:
-  both_date_and_time:
-    name: Input with both date and time
-    has_date: true
-    has_time: true
-  only_date:
-    name: Input with only date
-    has_date: true
-    has_time: false
-  only_time:
-    name: Input with only time
-    has_date: false
-    has_time: true
 input_datetime: !include casovace.yaml 
 input_number: !include input_number.yaml  
 ```
 vytvořit nebo přidat do *casovace.yaml*
 ```yaml
+both_date_and_time:
+  name: Input with both date and time
+  has_date: true
+  has_time: true
+only_date:
+  name: Input with only date
+  has_date: true
+  has_time: false
+only_time:
+  name: Input with only time
+  has_date: false
+  has_time: true
+###################
+# Definice filtrace
 filtrace_t_1:
     name: Filtrace 1
     has_date: false
