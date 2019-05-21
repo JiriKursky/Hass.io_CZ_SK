@@ -135,4 +135,6 @@ entities:
   - entity: input_datetime.filtrace_t_1
   - entity: input_number.filtrace_casovac_vypnuti_1
 ```
-umožní vám nastavit čas začátku a délku trvání
+umožní vám nastavit čas začátku a délku trvání.
+
+Toť vše.
