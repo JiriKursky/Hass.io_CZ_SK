@@ -1,7 +1,8 @@
-# Časovač pro řízení filtrace
-Uvedený postup by měl zajistit spuštění switche *switch.filtrace* ve třech různých cyklech. Napsáno v pythonu, protože mě osobně tři nestačí a nechtělo se mi kopírovat kód.
+# Časovač pro řízení filtrace nebo čehokoli během dne
+Uvedený postup by měl zajistit spuštění switche *switch.filtrace* ve třech různých cyklech. Napsáno v pythonu, protože mně osobně tři nestačí a nechtělo se mi kopírovat kód.
 
 Uvedený návod funguje pro Sonoff s flashem Tasmota a rozeběhlým MQTT. 
+Kdy se filtrace zapíná, naleznete v *filtrace_t_x* a jak dlouho poběží v minutách v *filtrace_casovac_vypnuti_x*
 
 Aby fungovalo níže popsané, musí se zadefinovat entita filtrace_zapni, která je třeba Sonoff definice někam do *configuration.yaml*:
 
