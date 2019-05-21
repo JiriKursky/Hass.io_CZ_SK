@@ -1,7 +1,7 @@
 # 8 nastavenych casu  input_datetime.filtrace_t_n, n = 1..3
 # 8 delek v minutach, nesmi byt > 59 input_datetime.filtrace_casovac_vypunti_n, n = 1..3
 # 
-# me trapeni: 
+# nedostatek znalosti: 
 # from datetime import datetime - nelze pouzit
 
 # pocet cyklu za 24 hodin = 'n'
