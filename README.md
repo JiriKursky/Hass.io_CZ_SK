@@ -1,7 +1,8 @@
 # Časovač pro řízení filtrace nebo čehokoli během dne
 Uvedený postup by měl zajistit spuštění switche *switch.filtrace* ve třech různých cyklech. Napsáno v pythonu, protože mně osobně tři nestačí a nechtělo se mi kopírovat kód.
 
-Uvedený návod funguje pro Sonoff s flashem Tasmota a rozeběhlým MQTT. 
+Uvedený návod funguje pro Sonoff s flashem Tasmota a rozeběhlým MQTT. Předpokládají se jen základní znalosti, mělo by to fungovat, když jen dodržíte uvedený postup. Na 99% jsem se někde sekl, budu rád za připomínky.
+
 Kdy se filtrace zapíná, naleznete v *filtrace_t_x* a jak dlouho poběží v minutách v *filtrace_casovac_vypnuti_x*
 
 Aby fungovalo níže popsané, musí se zadefinovat entita *filtrace_zapni*, která je třeba vrazit někam do *configuration.yaml*:
@@ -12,7 +13,7 @@ input_boolean:
     name: Ovládání filtrace
 ``` 
 *input_boolean* slouží jako pamatovák, ve kterém stavu se filtrace nachází, proč jsem to tak udělal už si nepamatuju, ale měl jsem důvod :)
-zapnutí switch.filtrace a vypnutí se řídí automatizací, je k dispozici dole
+zapnutí *switch.filtrace* a vypnutí se řídí automatizací, je k dispozici dole
 
 příklad defince switche v *configuration.yaml*
 ```yaml
@@ -49,8 +50,8 @@ only_time:
   name: Input with only time
   has_date: false
   has_time: true
-###################
-# Definice filtrace
+############################
+# Definice spusteni filtrace
 filtrace_t_1:
     name: Filtrace 1
     has_date: false
@@ -67,7 +68,7 @@ filtrace_t_3:
     has_time: true
     initial: '12:00'
 ```
-vytvořit nebo přidat do *input_number.yaml*
+vytvořit nebo přidat do *input_number.yaml* jak dlouho filtrace poběží
 ```yaml
 filtrace_casovac_vypnuti_1:
   name: Filtrace časovač vypnutí
@@ -123,8 +124,15 @@ přidat do *automations.yaml*
       entity_id: switch.filtrace
     service: switch.turn_off
   initial_state: true
-
 ```
 a pak do adresáře config/python_scripts (není-li, je třeba python_scripts vytvořit) nakopírovat soubor filtrace_casovac_n
 v souboru filtrace_casovac_n můžete změnit POCET_CYKLU = 3 na hodnotu, která vám vyhovuje, ale pak musíte přidat nebo ubrat v souborech
 (*casovace.yaml* a *input_number.yaml*) případné entity.
+Do HA si naskládejte entity 
+
+```yaml
+entities:
+  - entity: input_datetime.filtrace_t_1
+  - entity: input_number.filtrace_casovac_vypnuti_1
+```
+umožní vám nastavit čas začátku a délku trvání
