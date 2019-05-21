@@ -1,5 +1,5 @@
 # Časovač pro řízení filtrace nebo čehokoli během dne
-Uvedený postup by měl zajistit spuštění switche *switch.filtrace* ve třech různých cyklech. Napsáno v pythonu, protože mně osobně tři nestačí a nechtělo se mi kopírovat kód.
+Uvedený postup by měl zajistit spuštění switche *switch.filtrace* ve třech různých cyklech.
 
 Uvedený návod funguje pro Sonoff s flashem Tasmota a rozeběhlým MQTT. Předpokládají se jen základní znalosti, mělo by to fungovat, když jen dodržíte uvedený postup. Na 99% jsem se někde sekl, budu rád za připomínky.
 
