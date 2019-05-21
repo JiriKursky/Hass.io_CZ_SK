@@ -44,16 +44,19 @@ filtrace_casovac_vypnuti_1:
   min: 0
   max: 59
   step: 5
+  mode: box
 filtrace_casovac_vypnuti_2:
   name: Filtrace časovač vypnutí
   min: 0
   max: 59
   step: 5
+  mode: box
 filtrace_casovac_vypnuti_3:
   name: Filtrace časovač vypnutí
   min: 0
   max: 59
   step: 5
+  mode: box
 ```  
 přidat do *automations.yaml*
 ```yaml
