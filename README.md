@@ -1,4 +1,7 @@
 # Časovač pro řízení filtrace
+Uvedený postup by měl zajistit spuštění switche *switch.filtrace* ve třech různých cyklech. Napsáno v pythonu, protože mě osobně tři nestačí a nechtělo se mi kopírovat kód.
+
+Uvedený návod funguje pro Sonoff s flashem Tasmota a rozeběhlým MQTT. 
 
 Aby fungovalo níže popsané, musí se zadefinovat entita filtrace_zapni, která je třeba Sonoff definice někam do *configuration.yaml*:
 
@@ -7,10 +10,10 @@ input_boolean:
   filtrace_zapni:
     name: Ovládání filtrace
 ``` 
-slouží jako pamatovák, ve kterém stavu se filtrace nachází
+*input_boolean* slouží jako pamatovák, ve kterém stavu se filtrace nachází, proč jsem to tak udělal už si nepamatuju, ale měl jsem důvod :)
 zapnutí switch.filtrace a vypnutí se řídí automatizací, je k dispozici dole
-definice pro Sonoff tasmota MQTT - bude popsáno později, pokud bude zájem
 
+příklad defince switche v *configuration.yaml*
 ```yaml
 input_switch: 
 - platform: mqtt
