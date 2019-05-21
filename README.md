@@ -4,7 +4,7 @@ Uvedený postup by měl zajistit spuštění switche *switch.filtrace* ve třech
 Uvedený návod funguje pro Sonoff s flashem Tasmota a rozeběhlým MQTT. 
 Kdy se filtrace zapíná, naleznete v *filtrace_t_x* a jak dlouho poběží v minutách v *filtrace_casovac_vypnuti_x*
 
-Aby fungovalo níže popsané, musí se zadefinovat entita filtrace_zapni, která je třeba Sonoff definice někam do *configuration.yaml*:
+Aby fungovalo níže popsané, musí se zadefinovat entita *filtrace_zapni*, která je třeba vrazit někam do *configuration.yaml*:
 
 ```yaml
 input_boolean:
