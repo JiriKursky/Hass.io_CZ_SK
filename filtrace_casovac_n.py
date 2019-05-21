@@ -5,7 +5,7 @@
 # from datetime import datetime - nelze pouzit
 
 # pocet cyklu za 24 hodin = 'n'
-POCET_CYKLU = 8
+POCET_CYKLU = 3
 
 # nastaveny pocatecni cas
 # entity musi byt definovane takto input_datetime.filtrace_t_1, input_datetime.filtrace_t_2 ... az do POCET_CYKLU
