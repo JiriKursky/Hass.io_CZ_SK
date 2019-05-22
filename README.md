@@ -36,6 +36,13 @@ pak přidat do *configuration.yaml*
 input_datetime: !include casovace.yaml 
 input_number: !include input_number.yaml  
 ```
+
+zkontrolujte, máte-li v *configuration.yaml* pofporu python scriptů, hledejte a případně přidejte
+```yaml
+python_script:
+```
+
+
 vytvořit nebo přidat do *casovace.yaml*
 ```yaml
 both_date_and_time:
