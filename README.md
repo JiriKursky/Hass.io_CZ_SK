@@ -12,7 +12,7 @@ input_boolean:
   filtrace_zapni:
     name: Ovládání filtrace
 ``` 
-*input_boolean* slouží jako pamatovák, ve kterém stavu se filtrace nachází, proč jsem to tak udělal už si nepamatuju, ale měl jsem důvod :)
+*input_boolean* slouží jako pamatovák, ve kterém stavu se filtrace nachází, důvodem je, že pokud čistím bazén, potřebuju aby mi to případně nevypínalo. Zapnu přímo sonoff, ne prostřednictvím input_boolean.
 zapnutí *switch.filtrace* a vypnutí se řídí automatizací, je k dispozici dole
 
 příklad defince switche v *configuration.yaml*
@@ -120,7 +120,7 @@ přidat do *automations.yaml*
     service: switch.turn_on
   initial_state: true
 - id: 'filtrace_vypni'
-  alias: Vypnutí filttrace input booleanem
+  alias: Vypnutí filtrace input booleanem
   trigger:
   - entity_id: input_boolean.filtrace_zapni
     platform: state
