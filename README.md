@@ -1,3 +1,5 @@
+If you need english manual, let me know via [Home Assistant community](https://community.home-assistant.io/) or *Facebook community Home Assistant - Hassio chytrý dům CZ/SK*
+
 # Časovač pro řízení filtrace nebo čehokoli během dne
 Uvedený postup by měl zajistit spuštění switche *switch.filtrace* ve třech různých cyklech.
 
